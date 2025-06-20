@@ -1,0 +1,8 @@
+﻿<div class="dino-list">
+  <h1 class="title">Dinosaur Species</h1>
+  <ul>
+    <li *ngFor="let dino of dinos">
+      <button class="dino-button" (click)="onSelect(dino.name)">{{ dino.name }}</button>
+    </li>
+  </ul>
+</div>
