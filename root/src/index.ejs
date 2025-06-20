@@ -29,7 +29,7 @@
     {
       "imports": {
         "@cmg/root-config": "//localhost:9000/cmg-root-config.js",
-        "@single-spa/welcome": "https://cdn.jsdelivr.net/npm/single-spa-welcome/dist/single-spa-welcome.min.js"
+        "@cmg/dino-list": "http://localhost:4201/main.js"
       }
     }
   </script>
@@ -42,7 +42,12 @@
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
-  <main></main>
+  <main>
+    <header>
+      <div id="single-spa-application:@cmg/navbar"></div>
+    </header>
+    <div id="single-spa-application:@cmg/dino-list"></div>
+  </main>
   <script>
     window.importMapInjector.initPromise.then(() => {
       import('@cmg/root-config');

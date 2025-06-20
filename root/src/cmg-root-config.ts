@@ -1,13 +1,13 @@
 import { registerApplication, start, LifeCycles } from "single-spa";
 
 registerApplication({
-  name: "@single-spa/welcome",
+  name: "@cmg/dino-list",
   app: () =>
     import(
       /* webpackIgnore: true */ // @ts-ignore-next
-      "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js"
+      "@cmg/dino-list"
     ),
-  activeWhen: ["/"],
+  activeWhen: ["/dino-list"],
 });
 
 // registerApplication({

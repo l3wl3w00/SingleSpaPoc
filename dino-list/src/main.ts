@@ -1,6 +1,23 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
+import { NgZone } from '@angular/core';
+import { singleSpaAngular, getSingleSpaExtraProviders } from 'single-spa-angular';
 import { App } from './app/app';
+import { appConfig } from './app/app.config';
+import { bootstrapApplication } from '@angular/platform-browser';
+import 'zone.js';
 
-bootstrapApplication(App, appConfig)
-  .catch((err) => console.error(err));
+const lifecycles = singleSpaAngular({
+  bootstrapFunction: props => {
+    return bootstrapApplication(App, {
+      ...appConfig,
+      providers: [
+        ...getSingleSpaExtraProviders(),
+      ],
+    });
+  },
+  template: '<app-root />',
+  NgZone: NgZone,
+});
+
+export const bootstrap = lifecycles.bootstrap;
+export const mount = lifecycles.mount;
+export const unmount = lifecycles.unmount;
