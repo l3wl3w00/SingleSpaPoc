@@ -10,15 +10,15 @@ registerApplication({
   activeWhen: ["/dino-list"],
 });
 
-// registerApplication({
-//   name: "@cmg/navbar",
-//   app: () =>
-//     import(
-//       /* webpackIgnore: true */ // @ts-ignore-next
-//       "@cmg/navbar"
-//     ),
-//   activeWhen: ["/"],
-// });
+registerApplication({
+  name: "@cmg/navbar",
+  app: () =>
+    import(
+      /* webpackIgnore: true */ // @ts-ignore-next
+      "@cmg/navbar"
+    ),
+  activeWhen: () => true,
+});
 
 start({
   urlRerouteOnly: true,
