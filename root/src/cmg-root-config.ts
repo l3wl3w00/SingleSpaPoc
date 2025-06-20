@@ -17,7 +17,7 @@ registerApplication({
       /* webpackIgnore: true */ // @ts-ignore-next
       "@cmg/navbar"
     ),
-  activeWhen: () => true,
+  activeWhen: _ => true,
 });
 
 start({

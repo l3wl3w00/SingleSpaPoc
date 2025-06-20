@@ -7,7 +7,6 @@ module.exports = (webpackConfigEnv, argv) => {
     projectName: "navbar",
     webpackConfigEnv,
     argv,
-    outputSystemJS: true,
   });
 
   return merge(defaultConfig, {
