@@ -1,43 +1,50 @@
-﻿.dino-list {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li + li {
-  margin-top: 0.5rem;
-}
-
-.dino-button {
-  width: 100%;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 4px;
-  background-color: #1e88e5;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.dino-button:hover {
-  background-color: #1565c0;
-  /* Tailwind utility classes handle most styling */
-  .dino-list {
-    @apply bg-white rounded-lg shadow-md;
+﻿@keyframes gradient-x {
+  0% {
+    background-position: 0% 50%;
   }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-x 8s ease infinite;
+}
+
+/* Modern glassy card style */
+:host ::ng-deep .p-card.dino-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px) saturate(120%);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+:host ::ng-deep .p-card.dino-card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Uniform avatar size */
+.dino-avatar {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 9999px;
+  border: 3px solid #f0f9ff;
+}
+
+/* Container width */
+.dino-list {
+  max-width: 1536px;
+}
+
+/* Smaller PrimeNG button text */
+:host ::ng-deep .p-button-sm {
+  font-size: 0.75rem;
+  font-weight: 500;
 }
