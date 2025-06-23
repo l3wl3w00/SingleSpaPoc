@@ -12,7 +12,7 @@ import { navigateToUrl } from 'single-spa';
   standalone: true,
   imports: [CommonModule, CardModule, ButtonModule, TagModule, RippleModule],
   templateUrl: './dino-list.component.html',
-  styleUrls: ['./dino-list.component.css'],
+  styleUrls: ['./dino-list.component.scss'],
 })
 export class DinoListComponent {
   dinos = DINOSAURS;
