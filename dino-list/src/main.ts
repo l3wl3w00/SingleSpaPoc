@@ -10,6 +10,7 @@ const lifecycles = singleSpaAngular({
     return bootstrapApplication(App, {
       ...appConfig,
       providers: [
+        ...(appConfig.providers ?? []),
         ...getSingleSpaExtraProviders(),
       ],
     });

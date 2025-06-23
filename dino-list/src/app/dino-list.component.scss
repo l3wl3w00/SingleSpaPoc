@@ -36,4 +36,8 @@ li + li {
 
 .dino-button:hover {
   background-color: #1565c0;
+  /* Tailwind utility classes handle most styling */
+  .dino-list {
+    @apply bg-white rounded-lg shadow-md;
+  }
 }
