@@ -34,6 +34,7 @@
     {
       "imports": {
         "@cmg/root-config": "//localhost:9000/cmg-root-config.js",
+        "@cmg/home": "http://localhost:4200/cmg-home.js",
         "@cmg/dino-list": "http://localhost:4201/main.js",
         "@cmg/navbar": "http://localhost:4202/cmg-navbar.js"
       }
@@ -53,6 +54,7 @@
       <div id="single-spa-application:@cmg/navbar"></div>
     </header>
     <div id="single-spa-application:@cmg/dino-list"></div>
+    <div id="single-spa-application:@cmg/home"></div>
   </main>
   <script>
     window.importMapInjector.initPromise.then(() => {

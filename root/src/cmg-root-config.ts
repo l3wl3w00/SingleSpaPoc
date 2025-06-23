@@ -17,7 +17,17 @@ registerApplication({
       /* webpackIgnore: true */ // @ts-ignore-next
       "@cmg/navbar"
     ),
-  activeWhen: _ => true,
+  activeWhen: (_) => true,
+});
+
+registerApplication({
+  name: "@cmg/home",
+  app: () =>
+    import(
+      /* webpackIgnore: true */ // @ts-ignore-next
+      "@cmg/home"
+    ),
+  activeWhen: ["/home", "/"],
 });
 
 start({
