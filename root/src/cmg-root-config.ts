@@ -1,4 +1,4 @@
-import { registerApplication, start, LifeCycles } from "single-spa";
+import { registerApplication, start } from "single-spa";
 
 registerApplication({
   name: "@cmg/dino-list",
@@ -27,7 +27,7 @@ registerApplication({
       /* webpackIgnore: true */ // @ts-ignore-next
       "@cmg/home"
     ),
-  activeWhen: ["/home", "/"],
+  activeWhen: (loc) => loc.pathname === "/" || loc.pathname === "/home",
 });
 
 start({
