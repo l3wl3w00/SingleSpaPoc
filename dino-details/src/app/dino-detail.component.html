@@ -1,0 +1,7 @@
+<div *ngIf="dino" class="dino-detail">
+  <h2>{{ dino.name }}</h2>
+  <p>{{ dino.description }}</p>
+</div>
+<div *ngIf="!dino" class="dino-detail">
+  <p>Dinosaur not found.</p>
+</div>

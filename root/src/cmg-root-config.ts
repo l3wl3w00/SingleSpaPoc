@@ -9,6 +9,15 @@ registerApplication({
     ),
   activeWhen: ["/dino-list"],
 });
+registerApplication({
+  name: "@cmg/dino-details",
+  app: () =>
+    import(
+      /* webpackIgnore: true */ // @ts-ignore-next
+      "@cmg/dino-details"
+    ),
+  activeWhen: ["/dino-details"],
+});
 
 registerApplication({
   name: "@cmg/navbar",

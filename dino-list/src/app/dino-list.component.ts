@@ -1,6 +1,7 @@
 ﻿import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DINOSAURS } from './dinos/dinosaurs.data';
+import { navigateToUrl } from 'single-spa';
 
 @Component({
   selector: 'dino-list',
@@ -13,9 +14,6 @@ export class DinoListComponent {
   dinos = DINOSAURS;
 
   onSelect(dino: string): void {
-    window.dispatchEvent(
-      new CustomEvent('dino-selected', { detail: dino })
-    );
-    alert(`Details for ${dino} will open in another app.`);
+    navigateToUrl(`/dino-details/${encodeURIComponent(dino)}`);
   }
 }
