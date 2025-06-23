@@ -1,7 +1,39 @@
-<div *ngIf="dino" class="dino-detail">
-  <h2>{{ dino.name }}</h2>
-  <p>{{ dino.description }}</p>
+<div *ngIf="dino" class="dino-detail container mx-auto p-6">
+  <p-card class="glass-card">
+    <ng-template pTemplate="header">
+      <img [src]="dino.image" [alt]="dino.name" class="mx-auto dino-avatar" />
+    </ng-template>
+    <ng-template pTemplate="title">
+      <h2 class="text-4xl font-bold text-center">{{ dino.name }}</h2>
+    </ng-template>
+    <ng-template pTemplate="content">
+      <div class="flex justify-center gap-2 mb-4">
+        <p-tag [severity]="dietSeverity(dino.diet)" class="capitalize" [value]="dino.diet"></p-tag>
+        <p-tag severity="info" class="capitalize" [value]="dino.period"></p-tag>
+      </div>
+      <p class="text-sm text-gray-500 mb-4 text-center uppercase tracking-wide">
+        {{ dino.classification }}
+      </p>
+      <p class="mb-6">{{ dino.description }}</p>
+      <div class="grid grid-cols-2 gap-y-1 text-sm">
+        <span class="font-semibold">Length:</span>
+        <span>{{ dino.lengthMeters }} m</span>
+        <span class="font-semibold">Weight:</span>
+        <span>{{ dino.weightTons }} tons</span>
+        <span class="font-semibold">Top speed:</span>
+        <span>{{ dino.topSpeedKmH }} km/h</span>
+        <span class="font-semibold">Locomotion:</span>
+        <span>{{ dino.locomotion }}</span>
+        <span class="font-semibold">Habitat:</span>
+        <span>{{ dino.habitat }}</span>
+        <span class="font-semibold">Discovered:</span>
+        <span>{{ dino.discoveryYear }} by {{ dino.discoveredBy }}</span>
+        <span class="font-semibold">Fossil Locations:</span>
+        <span>{{ dino.fossilLocations.join(', ') }}</span>
+      </div>
+    </ng-template>
+  </p-card>
 </div>
-<div *ngIf="!dino" class="dino-detail">
+<div *ngIf="!dino" class="dino-detail container mx-auto p-6 text-center">
   <p>Dinosaur not found.</p>
 </div>
