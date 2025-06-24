@@ -2,18 +2,12 @@ import React, { useEffect, useState } from "react";
 import { COMMENTS, Comment } from "../../common/comments.data";
 
 export default function Root() {
-  useEffect(() => {
-    if (!document.getElementById("tailwind-script")) {
-      const script = document.createElement("script");
-      script.id = "tailwind-script";
-      script.src = "https://cdn.tailwindcss.com";
-      document.head.appendChild(script);
-    }
-  }, []);
 
   const parts = window.location.pathname.split("/");
   const dinoName = decodeURIComponent(parts[2] || "");
-  const [comments, setComments] = useState<Comment[]>(() => COMMENTS[dinoName] || []);
+  const [comments, setComments] = useState<Comment[]>(
+    () => COMMENTS[dinoName] || []
+  );
   const [author, setAuthor] = useState("");
   const [text, setText] = useState("");
 
