@@ -1,6 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
+import { DINOSAURS } from "../../common";
 
 export default function Root() {
+  const randomDino = useMemo(
+    () => DINOSAURS[Math.floor(Math.random() * DINOSAURS.length)],
+    []
+  );
   useEffect(() => {
     if (!document.getElementById("tailwind-script")) {
       const script = document.createElement("script");
@@ -35,7 +40,7 @@ export default function Root() {
           </p>
         </a>
         <a
-          href="/dino-details/Tyrannosaurus%20Rex"
+          href={`/dino-details/${encodeURIComponent(randomDino.name)}`}
           className="group bg-white/90 backdrop-blur rounded-xl p-6 shadow hover:shadow-lg transition text-center"
         >
           <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-600">

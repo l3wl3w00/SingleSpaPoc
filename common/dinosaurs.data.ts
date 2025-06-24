@@ -331,4 +331,70 @@ export const DINOSAURS: Dinosaur[] = [
       'Beak keratin impressions hint at a rhamphotheca suited to plucking plants, insects, and small vertebrates. ' +
       'Eye sockets faced slightly forward, perhaps granting better binocular vision for high-speed navigation.',
   },
+  {
+    name: 'Deinonychus',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/2/20/Deinonychus_Museum_Halle.jpg',
+    period: 'Cretaceous',
+    classification: 'Dromaeosaurid',
+    diet: 'Carnivore',
+    lengthMeters: 3.4,
+    weightTons: 0.07,
+    topSpeedKmH: 30,
+    locomotion: 'Bipedal',
+    habitat: 'Woodland edges',
+    discoveryYear: 1969,
+    discoveredBy: 'John Ostrom',
+    fossilLocations: ['Cloverly Formation, USA'],
+    shortDescription:
+      'The raptor that sparked modern images of agile killers.',
+    description:
+      'Deinonychus rewrote the dinosaur playbook when Ostrom revealed a sleek, dynamic predator built for speed and slashing claws. ' +
+      'Its sickle-shaped toe claw gripped prey like a grappling hook while strong forelimbs restrained victims. ' +
+      'Rather than crushing bone, its jaws delivered quick, lethal bites. ' +
+      'The discovery triggered the dinosaur renaissance, inspiring visions of cunning pack hunters.',
+  },
+  {
+    name: 'Dilophosaurus',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Dilophosaurus_on_display.jpg',
+    period: 'Jurassic',
+    classification: 'Dilophosaurid',
+    diet: 'Carnivore',
+    lengthMeters: 7,
+    weightTons: 0.45,
+    topSpeedKmH: 35,
+    locomotion: 'Bipedal',
+    habitat: 'River floodplains',
+    discoveryYear: 1942,
+    discoveredBy: 'Sam Welles',
+    fossilLocations: ['Kayenta Formation, USA'],
+    shortDescription:
+      'Twin-crested hunter from the Early Jurassic.',
+    description:
+      'Dilophosaurus carried two delicate head crests likely used for display rather than combat. ' +
+      'Long arms with three-clawed hands helped grasp slippery prey along stream banks. ' +
+      'Lightly built jaws hint at swift strikes instead of bone-crunching bites. ' +
+      'Tracks suggest it may have roamed in small groups near winding rivers.',
+  },
+  // {
+  //   name: 'Mosasaurus',
+  //   image: 'https://upload.wikimedia.org/wikipedia/commons/2/20/Mosasaurus_hoffmannii.jpg',
+  //   period: 'Cretaceous',
+  //   classification: 'Mosasaurid',
+  //   diet: 'Carnivore',
+  //   lengthMeters: 17,
+  //   weightTons: 14,
+  //   topSpeedKmH: 30,
+  //   locomotion: 'Aquatic',
+  //   habitat: 'Shallow seas',
+  //   discoveryYear: 1764,
+  //   discoveredBy: 'Peter Camper',
+  //   fossilLocations: ['Maastricht Formation, Netherlands'],
+  //   shortDescription:
+  //     'Oceanic apex predator with a double-hinged jaw.',
+  //   description:
+  //     'Mosasaurus ruled Late Cretaceous waters with a powerful tail and flippers reminiscent of modern whales. ' +
+  //     'Double-hinged jaws and recurved teeth trapped fish, turtles, and even smaller mosasaurs. ' +
+  //     'Fossils from Europe and North America show it prowled warm seas worldwide. ' +
+  //     'Its success ended only with the mass extinction that swept away marine reptiles.',
+  // },
 ];

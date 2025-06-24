@@ -190,4 +190,35 @@ export const COMMENTS: Record<string, Comment[]> = {
       date: "2025-06-24",
     },
   ],
+  "Deinonychus": [
+    {
+      author: "RaptorFan",
+      text: "This is the dino that started the renaissance!",
+      date: "2025-06-24",
+    },
+    {
+      author: "BoneJoker",
+      text: "Those claws mean business.",
+      date: "2025-06-24",
+    },
+  ],
+  "Dilophosaurus": [
+    {
+      author: "JurassicJester",
+      text: "No venom-spitting in real life, sadly.",
+      date: "2025-06-24",
+    },
+  ],
+  "Mosasaurus": [
+    {
+      author: "OceanicOverlord",
+      text: "The true terror of the Cretaceous seas.",
+      date: "2025-06-24",
+    },
+    {
+      author: "FossilFool",
+      text: "Shark week has nothing on this giant.",
+      date: "2025-06-24",
+    },
+  ],
 };
