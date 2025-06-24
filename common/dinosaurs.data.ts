@@ -333,7 +333,7 @@ export const DINOSAURS: Dinosaur[] = [
   },
   {
     name: 'Deinonychus',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/2/20/Deinonychus_Museum_Halle.jpg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Deinonychus_Restoration.png',
     period: 'Cretaceous',
     classification: 'Dromaeosaurid',
     diet: 'Carnivore',
@@ -355,7 +355,7 @@ export const DINOSAURS: Dinosaur[] = [
   },
   {
     name: 'Dilophosaurus',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Dilophosaurus_on_display.jpg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Dilophosaurus_wetherilli.PNG',
     period: 'Jurassic',
     classification: 'Dilophosaurid',
     diet: 'Carnivore',
