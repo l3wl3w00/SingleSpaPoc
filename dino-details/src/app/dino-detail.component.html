@@ -1,7 +1,156 @@
 <ng-container *ngIf="dino; else notFound">
-  <!-- Dino details here -->
+  <div class="container mx-auto max-w-4xl p-6 space-y-8">
+    <p-card class="overflow-hidden shadow-lg">
+      <ng-template pTemplate="header">
+        <img
+          [src]="dino.image"
+          [alt]="dino.name"
+          class="w-full h-64 object-cover object-center"
+        />
+      </ng-template>
+
+      <ng-template pTemplate="title">
+        <div class="flex items-center justify-center gap-2 text-3xl font-bold">
+          <span>{{ dino.name }}</span>
+          <span *ngIf="dino.emoji" class="text-4xl">{{ dino.emoji }}</span>
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="content">
+        <div class="flex justify-center gap-2 mb-4">
+          <p-tag
+            [severity]="dietSeverity(dino.diet)"
+            [value]="dino.diet"
+            class="capitalize"
+          ></p-tag>
+          <p-tag
+            severity="info"
+            [value]="dino.period + (dino.epoch ? ' (' + dino.epoch + ')' : '')"
+          ></p-tag>
+          <p-tag
+            severity="warning"
+            [value]="dino.locomotion"
+            class="capitalize"
+          ></p-tag>
+        </div>
+        <p class="text-center text-gray-700 mb-4">{{ dino.shortDescription }}</p>
+      </ng-template>
+    </p-card>
+
+    <p-tabView>
+      <p-tabPanel header="Overview">
+        <p class="mb-4">{{ dino.description }}</p>
+        <div class="grid sm:grid-cols-2 gap-4 text-sm">
+          <div><span class="font-medium">Classification:</span> {{ dino.classification }}</div>
+          <div><span class="font-medium">Habitat:</span> {{ dino.habitat }}</div>
+          <div><span class="font-medium">Paleo environment:</span> {{ dino.paleoEnvironment || 'Unknown' }}</div>
+          <div><span class="font-medium">Diet:</span> {{ dino.diet }}</div>
+          <div><span class="font-medium">Locomotion:</span> {{ dino.locomotion }}</div>
+          <div><span class="font-medium">Period:</span> {{ dino.period }}{{ dino.epoch ? ' ('+dino.epoch+')' : '' }}</div>
+        </div>
+      </p-tabPanel>
+
+      <p-tabPanel header="Stats">
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between text-sm font-medium">
+              <span>Length</span>
+              <span>{{ dino.lengthMeters }} m</span>
+            </div>
+            <p-progressBar [value]="statPercent(dino.lengthMeters, 25)"></p-progressBar>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm font-medium">
+              <span>Weight</span>
+              <span>{{ dino.weightTons }} t</span>
+            </div>
+            <p-progressBar [value]="statPercent(dino.weightTons, 40)"></p-progressBar>
+          </div>
+          <div *ngIf="dino.hipHeightMeters">
+            <div class="flex justify-between text-sm font-medium">
+              <span>Hip Height</span>
+              <span>{{ dino.hipHeightMeters }} m</span>
+            </div>
+            <p-progressBar [value]="statPercent(dino.hipHeightMeters, 6)"></p-progressBar>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm font-medium">
+              <span>Top Speed</span>
+              <span>{{ dino.topSpeedKmH }} km/h</span>
+            </div>
+            <p-progressBar [value]="statPercent(dino.topSpeedKmH, 56)"></p-progressBar>
+          </div>
+          <div *ngIf="dino.biteForceNewtons">
+            <div class="flex justify-between text-sm font-medium">
+              <span>Bite Force</span>
+              <span>{{ dino.biteForceNewtons }} N</span>
+            </div>
+            <p-progressBar [value]="statPercent(dino.biteForceNewtons, 35000)"></p-progressBar>
+          </div>
+          <div *ngIf="dino.brainToBodyRatio">
+            <div class="flex justify-between text-sm font-medium">
+              <span>Brain/Body Ratio</span>
+              <span>{{ dino.brainToBodyRatio }}</span>
+            </div>
+            <p-progressBar [value]="statPercent(dino.brainToBodyRatio, 1.5)"></p-progressBar>
+          </div>
+        </div>
+      </p-tabPanel>
+
+      <p-tabPanel header="Behavior">
+        <div class="grid sm:grid-cols-2 gap-4 text-sm">
+          <div *ngIf="dino.temperatureRegulation"><span class="font-medium">Temperature Reg:</span> {{ dino.temperatureRegulation }}</div>
+          <div><span class="font-medium">Feathers:</span> {{ dino.evidenceOfFeathers ? 'Yes' : 'No' }}</div>
+          <div *ngIf="dino.lifeSpanYears"><span class="font-medium">Life span:</span> {{ dino.lifeSpanYears }} yrs</div>
+          <div *ngIf="dino.clutchSize"><span class="font-medium">Clutch size:</span> {{ dino.clutchSize }}</div>
+          <div *ngIf="dino.eggDiameterCm"><span class="font-medium">Egg diameter:</span> {{ dino.eggDiameterCm }} cm</div>
+          <div *ngIf="dino.parentalCare"><span class="font-medium">Parental care:</span> {{ dino.parentalCare }}</div>
+          <div *ngIf="dino.socialBehavior"><span class="font-medium">Social behavior:</span> {{ dino.socialBehavior }}</div>
+        </div>
+      </p-tabPanel>
+
+      <p-tabPanel header="Discovery">
+        <div class="grid sm:grid-cols-2 gap-4 text-sm mb-4">
+          <div><span class="font-medium">Discovered:</span> {{ dino.discoveryYear }} by {{ dino.discoveredBy }}</div>
+          <div *ngIf="dino.holotypeCatalogId"><span class="font-medium">Holotype:</span> {{ dino.holotypeCatalogId }}</div>
+          <div *ngIf="dino.specimenCompletenessPct"><span class="font-medium">Completeness:</span> {{ dino.specimenCompletenessPct }}%</div>
+          <div *ngIf="dino.fossilSpecimenCount"><span class="font-medium">Specimens:</span> {{ dino.fossilSpecimenCount }}</div>
+          <div *ngIf="dino.absoluteAgeMa"><span class="font-medium">Age:</span> {{ dino.absoluteAgeMa.start }}-{{ dino.absoluteAgeMa.end }} Ma</div>
+        </div>
+        <div>
+          <div class="font-medium mb-1">Fossil Locations</div>
+          <ul class="list-disc list-inside space-y-1">
+            <li *ngFor="let loc of dino.fossilLocations">{{ loc }}</li>
+          </ul>
+        </div>
+      </p-tabPanel>
+
+      <p-tabPanel header="References">
+        <div class="grid sm:grid-cols-2 gap-4 text-sm mb-4">
+          <div *ngIf="dino.notableSpecimens?.length">
+            <div class="font-medium">Notable Specimens</div>
+            <ul class="list-disc list-inside space-y-1">
+              <li *ngFor="let spec of dino.notableSpecimens">{{ spec }}</li>
+            </ul>
+          </div>
+          <div *ngIf="dino.referencePapers?.length">
+            <div class="font-medium">Reference Papers</div>
+            <ul class="list-disc list-inside space-y-1">
+              <li *ngFor="let ref of dino.referencePapers">{{ ref }}</li>
+            </ul>
+          </div>
+          <div *ngIf="dino.featuredInMedia?.length">
+            <div class="font-medium">Featured In Media</div>
+            <ul class="list-disc list-inside space-y-1">
+              <li *ngFor="let m of dino.featuredInMedia">{{ m }}</li>
+            </ul>
+          </div>
+        </div>
+      </p-tabPanel>
+    </p-tabView>
+  </div>
 </ng-container>
 
 <ng-template #notFound>
-  <!-- Not found here -->
+  <div class="p-8 text-center text-gray-600">Dinosaur not found.</div>
 </ng-template>

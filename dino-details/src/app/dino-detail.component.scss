@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:host {
+  display: block;
+}
+
+:host ::ng-deep .p-progressbar .p-progressbar-value {
+  @apply bg-gradient-to-r from-emerald-400 via-sky-400 to-indigo-600;
+}
+
+:host ::ng-deep .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  @apply bg-emerald-500 text-white;
+}

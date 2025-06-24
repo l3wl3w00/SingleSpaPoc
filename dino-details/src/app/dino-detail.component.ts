@@ -4,14 +4,14 @@ import { ActivatedRoute } from '@angular/router';
 import { CardModule } from 'primeng/card';
 import { TagModule } from 'primeng/tag';
 import { DividerModule } from 'primeng/divider';
-import { AccordionModule } from 'primeng/accordion';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { TabViewModule } from 'primeng/tabview';
 import { DINOSAURS, Dinosaur } from '../../../common';
 
 @Component({
   selector: 'dino-detail',
   standalone: true,
-  imports: [CommonModule, CardModule, TagModule, DividerModule, AccordionModule, ProgressBarModule],
+  imports: [CommonModule, CardModule, TagModule, DividerModule, TabViewModule, ProgressBarModule],
   templateUrl: './dino-detail.component.html',
   styleUrls: ['./dino-detail.component.scss']
 })
