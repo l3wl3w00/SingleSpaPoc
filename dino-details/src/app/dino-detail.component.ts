@@ -4,12 +4,14 @@ import { ActivatedRoute } from '@angular/router';
 import { CardModule } from 'primeng/card';
 import { TagModule } from 'primeng/tag';
 import { DividerModule } from 'primeng/divider';
+import { AccordionModule } from 'primeng/accordion';
+import { ProgressBarModule } from 'primeng/progressbar';
 import { DINOSAURS, Dinosaur } from '../../../common';
 
 @Component({
   selector: 'dino-detail',
   standalone: true,
-  imports: [CommonModule, CardModule, TagModule, DividerModule],
+  imports: [CommonModule, CardModule, TagModule, DividerModule, AccordionModule, ProgressBarModule],
   templateUrl: './dino-detail.component.html',
   styleUrls: ['./dino-detail.component.scss']
 })
@@ -34,5 +36,9 @@ export class DinoDetailComponent {
       default:
         return 'info';
     }
+  }
+
+  statPercent(value: number, max: number): number {
+    return Math.round(Math.min(value / max, 1) * 100);
   }
 }
