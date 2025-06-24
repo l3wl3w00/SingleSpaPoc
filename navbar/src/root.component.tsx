@@ -9,7 +9,7 @@ export default function Root({ name }: RootProps) {
   return (
     <nav className="navbar">
       <a href="/" className="logo">
-        {name || "App"}
+        Dinosaur Database
       </a>
       <ul className="nav-links">
         <li>
