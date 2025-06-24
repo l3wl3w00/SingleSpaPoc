@@ -4,7 +4,7 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
 import { RippleModule } from 'primeng/ripple';
-import { DINOSAURS } from './dinos/dinosaurs.data';
+import { DINOSAURS } from '../../../common';
 import { navigateToUrl } from 'single-spa';
 
 @Component({

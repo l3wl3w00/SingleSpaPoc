@@ -2,7 +2,7 @@ export type Period = 'Triassic' | 'Jurassic' | 'Cretaceous';
 export type Diet = 'Carnivore' | 'Herbivore' | 'Omnivore';
 export type Locomotion = 'Bipedal' | 'Quadrupedal' | 'Both';
 
-export interface DinosaurDetail {
+export interface Dinosaur {
   name: string;
   image: string;
   period: Period;
@@ -19,3 +19,5 @@ export interface DinosaurDetail {
   shortDescription: string;
   description: string;
 }
+
+export type DinosaurDetail = Dinosaur;

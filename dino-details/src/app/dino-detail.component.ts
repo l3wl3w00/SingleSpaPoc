@@ -4,8 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CardModule } from 'primeng/card';
 import { TagModule } from 'primeng/tag';
 import { DividerModule } from 'primeng/divider';
-import { DINO_DETAILS } from './dinos/dino-details.data';
-import { DinosaurDetail } from './dinos/dinosaur-detail';
+import { DINOSAURS, Dinosaur } from '../../../common';
 
 @Component({
   selector: 'dino-detail',
@@ -15,12 +14,12 @@ import { DinosaurDetail } from './dinos/dinosaur-detail';
   styleUrls: ['./dino-detail.component.scss']
 })
 export class DinoDetailComponent {
-  dino?: DinosaurDetail;
+  dino?: Dinosaur;
 
   constructor(private readonly route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       const name = params['name'];
-      this.dino = DINO_DETAILS.find(d => d.name === decodeURIComponent(name));
+      this.dino = DINOSAURS.find(d => d.name === decodeURIComponent(name));
     });
   }
 
