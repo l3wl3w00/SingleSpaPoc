@@ -24,7 +24,7 @@ export default function Root() {
   }
 
   return (
-    <section className="max-w-2xl mx-auto p-4 space-y-4">
+    <section className="max-w-4xl mx-auto p-4 space-y-4">
       <h3 className="text-2xl font-bold">Community comments</h3>
       {comments.length === 0 ? (
         <p className="text-gray-500">No comments yet. Be the first!</p>
