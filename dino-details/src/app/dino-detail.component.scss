@@ -1,11 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.dino-detail {
-  @apply max-w-3xl;
-}
-
-.dino-avatar {
-  @apply w-full h-full object-cover rounded border-[8px] border-white shadow-lg ring-4;
-}
