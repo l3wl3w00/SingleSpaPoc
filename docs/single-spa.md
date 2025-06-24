@@ -55,8 +55,57 @@ A `create-single-spa` CLI segít az adott framework (React vagy Angular) projekt
 
 ### Angular sajátosságok
 
-- Előfordulhat, hogy Windows alatt az `npx create-single-spa --moduleType app-parcel` parancs hibára fut. A megoldás: telepítsük globálisan a CLI-t (`npm install --global create-single-spa`), majd futtassuk `create-single-spa --moduleType app-parcel`. Ha hibaüzenetet kapunk, a generált `generator-single-spa-angular.js` fájlban a `spawnSync` hívásnál adjunk hozzá `shell: true` opciót.
-- A `main.ts` állományban exportáljuk a `bootstrap`, `mount` és `unmount` függvényeket az alábbi minta szerint:
+
+Van egy ismert bug, amikor Windows alatt futtatjuk az
+`npx create-single-spa --moduleType app-parcel` parancsot. A hibás futáskor
+ehhez hasonló üzenetet kapunk:
+
+```
+The Angular CLI process to create a new project failed.
+Error: spawnSync ng.cmd EINVAL
+    at Object.spawnSync (node:internal/child_process:1120:20)
+    at spawnSync (node:child_process:868:24)
+    at SingleSpaAngularGenerator.runAngularCli (C:\Users\gyorgydeakl\AppData\Roaming\npm\node_modules\create-single-spa\node_modules\generator-single-spa\src\angular\generator-single-spa-angular.js:53:39) {
+  errno: -4071,
+  code: 'EINVAL',
+  syscall: 'spawnSync ng.cmd',
+  path: 'ng.cmd',
+  spawnargs: [ 'new', 'asd' ]
+}
+```
+
+A legegyszerűbb megoldás két lépésből áll:
+
+1. Telepítsük globálisan a CLI-t:
+
+   ```bash
+   npm install --global create-single-spa
+   ```
+
+2. Futtassuk újra a parancsot, ezúttal `npx` nélkül:
+
+   ```bash
+   create-single-spa --moduleType app-parcel
+   ```
+
+Ekkor ismét kaphatunk egy hasonló hibaüzenetet. Az üzenetben szereplő fájlt
+(például a fenti példában
+`C:\Users\gyorgydeakl\AppData\Roaming\npm\node_modules\create-single-spa\node_modules\generator-single-spa\src\angular\generator-single-spa-angular.js`)
+nyissuk meg, és körülbelül a 60. sorban a következő sort:
+
+```javascript
+      { stdio: "inherit", cwd }
+```
+
+cseréljük erre:
+
+```javascript
+      { stdio: "inherit", shell: true, cwd }
+```
+
+Ezután már helyesen fog működni a parancs.
+
+A `main.ts` állományban exportáljuk a `bootstrap`, `mount` és `unmount` függvényeket az alábbi minta szerint:
 
 ```typescript
 import { NgZone } from '@angular/core';
@@ -87,7 +136,8 @@ export const unmount = lifecycles.unmount;
 
 ### React sajátosságok
 
-A legújabb React (19.x) még nem kompatibilis a single-spa-val, ezért jelenleg React 18.x verziót használunk.
+Illetve, ha reactet akarunk létrehozni a CLI-al, akkor pedig rosszak a verziózások!
+Itt már könnyebb dolgunk van, mindössze annyit kell tennünk, hogy a package.json-ben a "react", "react-dom", "@types/react" és "@types/react-dom" dependencyket átírjuk egy 18.x-es verzióra pl 18.3.1.
 
 ## Összegzés
 
