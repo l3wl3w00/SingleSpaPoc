@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  root-config:
+    build:
+      context: .
+      dockerfile: root/Dockerfile
+    ports:
+      - "9000:9000"
+  home:
+    build:
+      context: .
+      dockerfile: home/Dockerfile
+    ports:
+      - "4200:4200"
+  navbar:
+    build:
+      context: .
+      dockerfile: navbar/Dockerfile
+    ports:
+      - "4202:4202"
+  comments:
+    build:
+      context: .
+      dockerfile: comments/Dockerfile
+    ports:
+      - "4204:4204"
+  dino-list:
+    build:
+      context: .
+      dockerfile: dino-list/Dockerfile
+    ports:
+      - "4201:4201"
+  dino-details:
+    build:
+      context: .
+      dockerfile: dino-details/Dockerfile
+    ports:
+      - "4203:4203"
+
