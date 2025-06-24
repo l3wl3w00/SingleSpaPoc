@@ -37,7 +37,8 @@
         "@cmg/home": "http://localhost:4200/cmg-home.js",
         "@cmg/dino-list": "http://localhost:4201/main.js",
         "@cmg/navbar": "http://localhost:4202/cmg-navbar.js",
-        "@cmg/dino-details": "http://localhost:4203/main.js"
+        "@cmg/dino-details": "http://localhost:4203/main.js",
+        "@cmg/comments": "http://localhost:4204/cmg-comments.js"
       }
     }
   </script>
@@ -54,9 +55,10 @@
     <header>
       <div id="single-spa-application:@cmg/navbar"></div>
     </header>
+    <div id="single-spa-application:@cmg/home"></div>
     <div id="single-spa-application:@cmg/dino-list"></div>
     <div id="single-spa-application:@cmg/dino-details"></div>
-    <div id="single-spa-application:@cmg/home"></div>
+    <div id="single-spa-application:@cmg/comments"></div>
   </main>
   <script>
     window.importMapInjector.initPromise.then(() => {

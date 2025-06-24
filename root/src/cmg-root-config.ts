@@ -39,6 +39,16 @@ registerApplication({
   activeWhen: (loc) => loc.pathname === "/" || loc.pathname === "/home",
 });
 
+registerApplication({
+  name: "@cmg/comments",
+  app: () =>
+    import(
+      /* webpackIgnore: true */ // @ts-ignore-next
+      "@cmg/comments"
+    ),
+  activeWhen: ["/dino-details"],
+});
+
 start({
   urlRerouteOnly: true,
 });
