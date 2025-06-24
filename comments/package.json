@@ -4,6 +4,7 @@
     "start": "webpack serve --port 4204",
     "start:standalone": "webpack serve --env standalone",
     "build": "concurrently npm:build:*",
+    "build:prod": "npm run build",
     "build:webpack": "webpack --mode=production",
     "analyze": "webpack --mode=production --env analyze",
     "lint": "eslint src --ext js,ts,tsx",

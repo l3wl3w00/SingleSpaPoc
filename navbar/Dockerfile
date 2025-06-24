@@ -6,7 +6,7 @@ WORKDIR /app/navbar
 COPY navbar/package*.json ./
 RUN npm ci --force
 COPY navbar .
-RUN npm run build
+RUN npm run build:prod
 
 # Production stage
 FROM node:20-alpine AS prod

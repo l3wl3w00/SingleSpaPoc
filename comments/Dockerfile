@@ -6,7 +6,7 @@ WORKDIR /app/comments
 COPY comments/package*.json ./
 RUN npm ci --force
 COPY comments .
-RUN npm run build
+RUN npm run build:prod
 
 # Production stage
 FROM node:20-alpine AS prod

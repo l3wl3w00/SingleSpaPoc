@@ -6,7 +6,7 @@ WORKDIR /app/home
 COPY home/package*.json ./
 RUN npm ci --force
 COPY home .
-RUN npm run build
+RUN npm run build:prod
 
 # Production stage
 FROM node:20-alpine AS prod

@@ -5,7 +5,7 @@ COPY root/package*.json ./
 RUN npm ci --force
 COPY common ../common
 COPY root .
-RUN npm run build
+RUN npm run build:prod
 
 # Production stage
 FROM node:20-alpine AS prod

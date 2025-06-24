@@ -8,6 +8,7 @@
     "check-format": "prettier --check .",
     "prepare": "husky install",
     "build": "concurrently npm:build:*",
+    "build:prod": "npm run build",
     "build:webpack": "webpack --mode=production",
     "build:types": "tsc"
   },

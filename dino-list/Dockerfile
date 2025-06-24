@@ -6,7 +6,7 @@ WORKDIR /app/dino-list
 COPY dino-list/package*.json ./
 RUN npm ci --force
 COPY dino-list .
-RUN npm run build
+RUN npm run build:prod
 
 # Production stage
 FROM node:20-alpine AS prod

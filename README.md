@@ -27,14 +27,17 @@ npm start
 3. Ismételd meg a fenti lépéseket a következő mappákban: `root`, `home`, `navbar`, `comments`, `dino-list`, `dino-details`.
 4. A modulok a fenti portokon lesznek elérhetők, a root-konfiguráció pedig a `http://localhost:9000` címen tölti be őket.
 
-## Indítás automatizálása
+## Indítás automatizálása Dockerrel
 
-A projekt tartalmaz egy `startup.ps1` PowerShell szkriptet, amely egymás után elindítja a fenti micro-frontendeket. A szkript minden mappában végrehajtja az `npm start` parancsot, így nem szükséges külön terminálablakokat nyitni.
+Az egyes micro-frontendet tartalmazó Dockerfile-ok Node **20** alapú képet
+használnak, és a `docker-compose.yml` állomány minden szolgáltatást külön
+konténerben indít. A projekt gyökerében a következő parancs futtatásával
+építhető és indítható el a teljes alkalmazás:
 
-A szkript futtatása Windows alatt (powershell-ből):
-
-```powershell
-./startup.ps1
+```bash
+docker compose up --build
 ```
 
-Ezzel a módszerrel egy lépésben elindítható a teljes alkalmazás.
+Régebbi Docker telepítés esetén használható a `docker-compose` parancs is.
+Sikeres build után a root-konfiguráció a `http://localhost:9000` címen, a
+micro-frontend modulok pedig a portokon **4200**–**4204** érhetők el.localhost:9000` címen tölti be a többi modult.
