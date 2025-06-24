@@ -19,7 +19,7 @@ export class DinoDetailComponent {
   constructor(private readonly route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       const name = params['name'];
-      this.dino = DINOSAURS.find(d => d.name === decodeURIComponent(name));
+      this.dino = DINOSAURS.find(d => d.name.toLowerCase() === decodeURIComponent(name).toLowerCase());
     });
   }
 
