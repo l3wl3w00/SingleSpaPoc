@@ -21,7 +21,7 @@ A projekt gyökerében futtasd:
 npm install
 ```
 
-Ez telepíti az összes workspace modul függőségeit.
+Ez telepíti az összes workspace modul függőségeit. Emiatt ez a parancs eltarthat egy ideig.
 
 ## Fejlesztői futtatás
 
