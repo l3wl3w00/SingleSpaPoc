@@ -1,0 +1,27 @@
+{
+  "name": "single-spa-poc",
+  "private": true,
+  "workspaces": [
+    "root",
+    "home",
+    "navbar",
+    "comments",
+    "dino-list",
+    "dino-details"
+  ],
+  "scripts": {
+    "dev":        "concurrently \"npm:start:*\"",
+    "start:root":      "npm --prefix root start",
+    "start:home":      "npm --prefix home start",
+    "start:navbar":    "npm --prefix navbar start",
+    "start:comments":  "npm --prefix comments start",
+    "start:dino-list": "npm --prefix dino-list start",
+    "start:dino-det":  "npm --prefix dino-details start",
+    "build-all":  "npm run build -ws",
+    "clean-all":  "npm run clean -ws",
+    "test-all":   "npm t -ws"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0"
+  }
+}
