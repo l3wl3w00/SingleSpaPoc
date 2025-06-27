@@ -76,19 +76,14 @@ Error: spawnSync ng.cmd EINVAL
 
 A legegyszerűbb megoldás két lépésből áll:
 
-1. Telepítsük globálisan a CLI-t:
+1. Telepítsük globálisan a CLI-t, majd futtassuk újra a parancsot, ezúttal `npx` nélkül:
 
    ```bash
    npm install --global create-single-spa
-   ```
-
-2. Futtassuk újra a parancsot, ezúttal `npx` nélkül:
-
-   ```bash
    create-single-spa --moduleType app-parcel
    ```
 
-Ekkor ismét kaphatunk egy hasonló hibaüzenetet. Az üzenetben szereplő fájlt
+2. Ekkor ismét kaphatunk egy hasonló hibaüzenetet. Az üzenetben szereplő fájlt
 (például a fenti példában
 `C:\Users\gyorgydeakl\AppData\Roaming\npm\node_modules\create-single-spa\node_modules\generator-single-spa\src\angular\generator-single-spa-angular.js`)
 nyissuk meg, és körülbelül a 60. sorban a következő sort:
